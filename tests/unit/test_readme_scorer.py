@@ -1,4 +1,4 @@
-﻿"""Tests for readme_scorer.py"""
+"""Tests for readme_scorer.py"""
 
 import pytest
 
