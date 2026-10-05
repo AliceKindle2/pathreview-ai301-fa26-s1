@@ -22,16 +22,16 @@ class TestReadmeScorer:
 
         ## Installation
         Getting started is straightforward and only takes a minute. Make sure you have Python 3.9 or later installed before proceeding with the steps below. The installation process has been tested across Windows, macOS, and major Linux distributions, and the package maintains minimal external dependencies to keep installation fast and predictable across different environments and continuous integration pipelines.
-        ```bash
+```bash
         pip install package
-        ```
+```
 
         ## Usage
         Once installed, using the package is simple. Import it into your script and call the run method to get started immediately with sensible defaults. The API was designed to be intuitive for newcomers while still exposing enough configuration options for advanced users who need finer control over behavior. Most common use cases require only a handful of lines of code, and the documentation includes extensive examples covering typical workflows, common error patterns, and troubleshooting guidance for new contributors.
-        ```python
+```python
         import package
         package.run()
-        ```
+```
 
         ## Features
         - Feature 1
