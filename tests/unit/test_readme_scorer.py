@@ -22,16 +22,16 @@ class TestReadmeScorer:
 
         ## Installation
         Getting started is straightforward and only takes a minute. Make sure you have Python 3.9 or later installed before proceeding with the steps below. The installation process has been tested across Windows, macOS, and major Linux distributions, and the package maintains minimal external dependencies to keep installation fast and predictable across different environments and continuous integration pipelines.
-```bash
+        ```bash
         pip install package
-```
+        ```
 
         ## Usage
         Once installed, using the package is simple. Import it into your script and call the run method to get started immediately with sensible defaults. The API was designed to be intuitive for newcomers while still exposing enough configuration options for advanced users who need finer control over behavior. Most common use cases require only a handful of lines of code, and the documentation includes extensive examples covering typical workflows, common error patterns, and troubleshooting guidance for new contributors.
-```python
+        ```python
         import package
         package.run()
-```
+        ```
 
         ## Features
         - Feature 1
@@ -225,10 +225,10 @@ class TestReadmeScorer:
         result = scorer.execute({"readme_content": readme})
         assert result.data["has_tech_stack_section"] is True
 
+    # fmt: off
     def test_overall_score_calculation(self, scorer):
         """Test that overall score aggregates components."""
-        readme = (
-            """
+        readme = """
         # Good README
 
         ## Installation
@@ -243,9 +243,7 @@ class TestReadmeScorer:
         ![Build](https://example.com/build.svg)
 
         This readme has lots of content here.
-        """
-            * 3
-        )  # Make it comprehensive
+        """ * 3  # Make it comprehensive
 
         result = scorer.execute({"readme_content": readme})
 
@@ -253,6 +251,7 @@ class TestReadmeScorer:
         assert 0.0 <= data["overall_score"] <= 1.0
         # Multiple signals should yield higher score
         assert data["overall_score"] > 0.5
+    # fmt: on
 
     def test_missing_readme_content_key(self, scorer):
         """Test handling of missing readme_content key."""
