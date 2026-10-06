@@ -225,10 +225,10 @@ class TestReadmeScorer:
         result = scorer.execute({"readme_content": readme})
         assert result.data["has_tech_stack_section"] is True
 
-    # fmt: off
     def test_overall_score_calculation(self, scorer):
         """Test that overall score aggregates components."""
-        readme = """
+        readme = (
+            """
         # Good README
 
         ## Installation
@@ -243,7 +243,9 @@ class TestReadmeScorer:
         ![Build](https://example.com/build.svg)
 
         This readme has lots of content here.
-        """ * 3  # Make it comprehensive
+        """
+            * 3
+        )  # Make it comprehensive
 
         result = scorer.execute({"readme_content": readme})
 
@@ -251,7 +253,6 @@ class TestReadmeScorer:
         assert 0.0 <= data["overall_score"] <= 1.0
         # Multiple signals should yield higher score
         assert data["overall_score"] > 0.5
-    # fmt: on
 
     def test_missing_readme_content_key(self, scorer):
         """Test handling of missing readme_content key."""
